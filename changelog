@@ -6,3 +6,11 @@ format:
 [TODO]
 
 Do this for EVERY SINGLE change made on this project
+
+23.6.2026 22:18 Krenuo da pravim backend skoro zavrsio sa tabelama, verovatno
+	 ce biti nekih izmena tipa mora dodam neke atribute za neke tabele jer sam
+	 shvatio da ih moram imati da bi bolje radilo i kada to zavrsim krenucu sa
+	 endpointovima prvo za login da mozes to da zavrsis pa sve ostalo.
+	 
+	 Napravi samo login stranicu cisto izgled nista mnogo pa ces logiku posle da
+	 dodas.
