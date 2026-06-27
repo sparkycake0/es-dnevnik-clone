@@ -1,5 +1,7 @@
 package com.esdnevnik.education.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,8 +25,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class School {
+
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
+  @JsonIgnore
   @Column(name = "id", unique = true, updatable = false, nullable = false)
   public String id;
 

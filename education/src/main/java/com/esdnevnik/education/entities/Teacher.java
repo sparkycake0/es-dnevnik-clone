@@ -1,5 +1,7 @@
 package com.esdnevnik.education.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,4 +31,13 @@ public class Teacher {
   @NotBlank(message = "Teacher must have a name")
   @Column(name = "name", nullable = false, updatable = false)
   private String name;
+
+  @Column(name = "email", nullable = false, updatable = true)
+  @NotBlank(message = "Teacher must have a email, required for authentication.")
+  private String email;
+
+  @Column(name = "password", nullable = false, updatable = true)
+  @JsonIgnore
+  @NotBlank(message = "Teacher must have a password, required for authentication.")
+  private String password;
 }

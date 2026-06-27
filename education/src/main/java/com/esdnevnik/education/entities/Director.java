@@ -1,5 +1,8 @@
 package com.esdnevnik.education.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -34,7 +37,16 @@ public class Director {
   @Column(name = "name", nullable = false, updatable = true)
   private String name;
 
-  @OneToOne(fetch = FetchType.LAZY, optional = false)
+  @OneToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
   @JoinColumn(name = "school_id", nullable = false, unique = true, foreignKey = @ForeignKey(name = "fk_director_school"))
   private School school;
+
+  @Column(name = "email", nullable = false, updatable = true)
+  @NotBlank(message = "Director must have a email, required for authentication.")
+  private String email;
+
+  @Column(name = "password", nullable = false, updatable = true)
+  @JsonIgnore
+  @NotBlank(message = "Director must have a password, required for authentication.")
+  private String password;
 }

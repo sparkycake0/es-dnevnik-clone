@@ -1,5 +1,7 @@
 package com.esdnevnik.education.entities;
 
+import org.hibernate.validator.constraints.Range;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -38,6 +40,11 @@ public class SchoolClass {
   @Column(name = "size", nullable = false, updatable = true)
   @PositiveOrZero(message = "Class cannot have negative number of students")
   private int size;
+
+  @Column(name = "grade", updatable = false, nullable = false)
+  @PositiveOrZero(message = "Grade cannot be a negative number")
+  @Range(min = 1, max = 8, message = "Grade must be between first and eighth.")
+  private int grade;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "school_id", nullable = false, updatable = false, foreignKey = @ForeignKey(name = "fk_class_school"))
